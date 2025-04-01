@@ -10,9 +10,9 @@ interface IBookingDocument extends mongoose.Document {
   checkout: Date;
   nights: number; // Auto Calculated
   // pricing
-  totalPrice: number;
+  totalPrice: number; // Total Cost of the property
   homeownerPayout: number; // Money homeowner will recieve
-  serviceFee: number;
+  serviceFee: number; // Platform charge (eg. 10%)
 
   // payment
   payment: {
