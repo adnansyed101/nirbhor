@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Logo from "./Logo";
 import { navigation } from "@/constant";
+import Button from "@/components/Button";
 
 const Navbar = () => {
   return (
@@ -18,8 +19,16 @@ const Navbar = () => {
                 </li>
               ))}
             </ul>
-            {/* <Button /> */}
-            <button>Demo</button>
+            <div>
+              <Link href={"register"}>
+                <Button variant="text" className="text-white">
+                  Create
+                </Button>
+              </Link>
+              <Link href={"/login"}>
+                <Button variant="filled">Login</Button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
