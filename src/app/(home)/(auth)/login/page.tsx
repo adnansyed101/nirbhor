@@ -1,0 +1,20 @@
+import { LoginForm } from "@/components/login-form"
+import { Metadata } from "next"
+import Logo from "../components/Logo"
+
+export const metadata: Metadata = {
+  title: "Login"
+}
+
+export default function LoginPage() {
+
+
+  return (
+    <div className="flex min-h-svh flex-col items-center justify-center gap-6 bg-muted p-6 md:p-10">
+      <Logo />
+      <div className="flex w-full max-w-sm flex-col gap-6">
+        <LoginForm />
+      </div>
+    </div>
+  )
+}
