@@ -21,7 +21,9 @@ export default function RootLayout({
           <AppSidebar variant="inset" />
           <SidebarInset>
             <SiteHeader />
-            {children}
+            <div className="@container/main md:py-6  py-4 px-4 lg:px-6 ">
+              {children}
+            </div>
           </SidebarInset>
         </SidebarProvider>
       </body>
