@@ -250,11 +250,7 @@ function Sidebar({
         </div>
       </div>
     </div>
-<<<<<<< HEAD
-  )
-=======
   );
->>>>>>> 0788f2c6108a428ff9f89e76003fa1f4e6727710
 }
 
 function SidebarTrigger({
@@ -262,11 +258,7 @@ function SidebarTrigger({
   onClick,
   ...props
 }: React.ComponentProps<typeof Button>) {
-<<<<<<< HEAD
-  const { toggleSidebar } = useSidebar()
-=======
   const { toggleSidebar } = useSidebar();
->>>>>>> 0788f2c6108a428ff9f89e76003fa1f4e6727710
 
   return (
     <Button

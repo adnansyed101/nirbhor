@@ -29,32 +29,14 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               asChild
               className="data-[slot=sidebar-menu-button]:!p-1.5"
             >
-<<<<<<< HEAD
-              <a href="#">
-                <IconInnerShadowTop className="!size-5" />
-                <span className="text-base font-semibold">Acme Inc.</span>
-              </a>
-=======
               <Link href={"/"}>
                 <Logo className="text-black" />
               </Link>
->>>>>>> 0788f2c6108a428ff9f89e76003fa1f4e6727710
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-<<<<<<< HEAD
-        <NavMain items={data.navMain} />
-        <NavDocuments items={data.documents} />
-        <NavSecondary items={data.navSecondary} className="mt-auto" />
-      </SidebarContent>
-      <SidebarFooter>
-        <NavUser user={data.user} />
-      </SidebarFooter>
-    </Sidebar>
-  )
-=======
         <NavMain items={dashboardData.navMain} />
         <NavDocuments items={dashboardData.documents} />
         <NavSecondary items={dashboardData.navSecondary} className="mt-auto" />
@@ -64,5 +46,4 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarFooter>
     </Sidebar>
   );
->>>>>>> 0788f2c6108a428ff9f89e76003fa1f4e6727710
 }
