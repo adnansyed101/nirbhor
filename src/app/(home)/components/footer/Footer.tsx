@@ -3,9 +3,9 @@
 import { usePathname } from "next/navigation";
 
 const Footer = () => {
-  const param = usePathname();
+  const path = usePathname();
 
-  if (param === "/dashboard" || "/login" || '/register') {
+  if (path === "/dashboard" || path === "/login" || path === "/register") {
     return <></>;
   }
 
