@@ -7,9 +7,9 @@ import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
 
 const Navbar = () => {
-  const param = usePathname();
+  const path = usePathname();
 
-  if (param === "/dashboard") {
+  if (path === "/dashboard" || "/login" || '/register') {
     return <></>;
   }
 
