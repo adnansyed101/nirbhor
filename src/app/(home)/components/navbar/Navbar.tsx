@@ -9,7 +9,11 @@ import { usePathname } from "next/navigation";
 const Navbar = () => {
   const path = usePathname();
 
-  if (path === "/dashboard" || "/login" || '/register') {
+  if (
+    path.includes("/dashboard") ||
+    path.includes("/login") ||
+    path.includes("/register")
+  ) {
     return <></>;
   }
 
