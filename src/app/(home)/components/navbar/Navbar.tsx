@@ -1,9 +1,18 @@
+"use client";
+
 import Link from "next/link";
 import Logo from "./Logo";
 import { navigation } from "@/constant";
 import { Button } from "@/components/ui/button";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
+  const param = usePathname();
+
+  if (param === "/dashboard") {
+    return <></>;
+  }
+
   return (
     <>
       <div className="w-full h-20 bg-emerald-800 sticky top-0">

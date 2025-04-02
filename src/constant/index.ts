@@ -20,6 +20,11 @@ const navigation: NavItem[] = [
     path: "/contact",
     label: "Contact",
   },
+  {
+    id: 4,
+    path: "/dashboard",
+    label: "Dashboard",
+  },
 ];
 
 export { navigation };
