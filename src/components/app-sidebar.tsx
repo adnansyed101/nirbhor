@@ -16,8 +16,8 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import Link from "next/link";
-import Logo from "@/app/(home)/components/navbar/Logo";
 import { dashboardData } from "@/constant";
+import Logo from "./Logo";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
