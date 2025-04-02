@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Logo from "./Logo";
 import { navigation } from "@/constant";
-import Button from "@/components/Button";
+import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
   return (
@@ -21,12 +21,17 @@ const Navbar = () => {
             </ul>
             <div>
               <Link href={"register"}>
-                <Button variant="text" className="text-white">
+                <Button
+                  variant="link"
+                  className="cursor-pointer text-white hover:text-white"
+                >
                   Create
                 </Button>
               </Link>
               <Link href={"/login"}>
-                <Button variant="filled">Login</Button>
+                <Button className="bg-white text-black  hover:bg-white/95 cursor-pointer">
+                  Login
+                </Button>
               </Link>
             </div>
           </div>
