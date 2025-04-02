@@ -5,11 +5,15 @@ import { usePathname } from "next/navigation";
 const Footer = () => {
   const path = usePathname();
 
+<<<<<<< HEAD
+  if (path === "/dashboard" || path === "/login" || path === "/register") {
+=======
   if (
     path.includes("/dashboard") ||
     path.includes("/login") ||
     path.includes("/register")
   ) {
+>>>>>>> 222347d536ade3db785f376d13d5facdc517ddad
     return <></>;
   }
 
