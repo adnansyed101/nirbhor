@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 "use client"
 
 import * as React from "react"
@@ -23,6 +24,16 @@ import { NavDocuments } from "@/components/nav-documents"
 import { NavMain } from "@/components/nav-main"
 import { NavSecondary } from "@/components/nav-secondary"
 import { NavUser } from "@/components/nav-user"
+=======
+"use client";
+
+import * as React from "react";
+
+import { NavDocuments } from "@/components/nav-documents";
+import { NavMain } from "@/components/nav-main";
+import { NavSecondary } from "@/components/nav-secondary";
+import { NavUser } from "@/components/nav-user";
+>>>>>>> 222347d536ade3db785f376d13d5facdc517ddad
 import {
   Sidebar,
   SidebarContent,
@@ -31,6 +42,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+<<<<<<< HEAD
 } from "@/components/ui/sidebar"
 
 const data = {
@@ -149,6 +161,12 @@ const data = {
     },
   ],
 }
+=======
+} from "@/components/ui/sidebar";
+import Link from "next/link";
+import Logo from "@/app/(home)/components/navbar/Logo";
+import { dashboardData } from "@/constant";
+>>>>>>> 222347d536ade3db785f376d13d5facdc517ddad
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
@@ -160,15 +178,22 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               asChild
               className="data-[slot=sidebar-menu-button]:!p-1.5"
             >
+<<<<<<< HEAD
               <a href="#">
                 <IconInnerShadowTop className="!size-5" />
                 <span className="text-base font-semibold">Acme Inc.</span>
               </a>
+=======
+              <Link href={"/"}>
+                <Logo className="text-black" />
+              </Link>
+>>>>>>> 222347d536ade3db785f376d13d5facdc517ddad
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
+<<<<<<< HEAD
         <NavMain items={data.navMain} />
         <NavDocuments items={data.documents} />
         <NavSecondary items={data.navSecondary} className="mt-auto" />
@@ -178,4 +203,15 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarFooter>
     </Sidebar>
   )
+=======
+        <NavMain items={dashboardData.navMain} />
+        <NavDocuments items={dashboardData.documents} />
+        <NavSecondary items={dashboardData.navSecondary} className="mt-auto" />
+      </SidebarContent>
+      <SidebarFooter>
+        <NavUser user={dashboardData.user} />
+      </SidebarFooter>
+    </Sidebar>
+  );
+>>>>>>> 222347d536ade3db785f376d13d5facdc517ddad
 }
