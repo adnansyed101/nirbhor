@@ -1,11 +1,9 @@
+import Hero from "./(home)/components/hero/Hero";
+
 const Home = () => {
   return (
     <div className="h-80">
-      <h1>Welcome to Nirbhor</h1>
-      <p>Your comfort, our commitment.</p>
-      <p>hello</p>
-      <p>Ready for conflict</p>
-      <p>Your comfort our commitment.</p>
+      <Hero />
     </div>
   );
 };
