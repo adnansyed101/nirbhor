@@ -5,6 +5,7 @@ import Logo from "./Logo";
 import { navigation } from "@/constant";
 import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
+import Container from "@/components/container";
 
 const Navbar = () => {
   const path = usePathname();
@@ -19,8 +20,8 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="w-full h-20 bg-emerald-800 sticky top-0">
-        <div className="container mx-auto px-4 h-full">
+      <nav className="w-full h-20 bg-emerald-800 sticky top-0">
+        <Container className=" h-full">
           <div className="flex justify-between items-center h-full">
             <Logo />
             <ul className="hidden md:flex gap-x-6 text-white">
@@ -48,8 +49,8 @@ const Navbar = () => {
               </Link>
             </div>
           </div>
-        </div>
-      </div>
+        </Container>
+      </nav>
     </>
   );
 };

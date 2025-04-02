@@ -2,7 +2,8 @@ import Hero from "./(home)/components/hero/Hero";
 
 const Home = () => {
   return (
-    <div className="h-80">
+    <div>
+      <div className="mt-6" />
       <Hero />
     </div>
   );
