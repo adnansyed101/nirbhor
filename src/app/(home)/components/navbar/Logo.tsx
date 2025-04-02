@@ -1,7 +1,11 @@
 import React from "react";
 
-const Logo = () => {
-  return <h2 className="text-2xl font-semibold text-white">Nirbhor</h2>;
+interface Props {
+  className: string;
+}
+
+const Logo: React.FC<Props> = ({ className }) => {
+  return <h2 className={`text-2xl font-semibold ${className}`}>Nirbhor</h2>;
 };
 
 export default Logo;
