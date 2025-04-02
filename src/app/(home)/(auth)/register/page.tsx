@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from "react";
-import Logo from "../components/Logo";
 import { Button } from "@/components/ui/button";
-import { SignupForm } from "@/components/signup-form";
+import { SignupForm } from "./components/signup-form";
+import Logo from "@/components/Logo";
 
 const Page = () => {
   const [selectedRole, setSelectedRole] = useState<string>('');

@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import Logo from "./Logo";
 import { navigation } from "@/constant";
 import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
+import Logo from "@/components/Logo";
 
 const Navbar = () => {
   const path = usePathname();

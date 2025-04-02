@@ -1,6 +1,6 @@
-import { LoginForm } from "@/components/login-form"
 import { Metadata } from "next"
-import Logo from "../components/Logo"
+import { LoginForm } from "./components/login-form"
+import Logo from "@/components/Logo"
 
 export const metadata: Metadata = {
   title: "Login"
