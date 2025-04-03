@@ -25,14 +25,11 @@ export function SignupForm({
     const name = formData.get("name");
     const password = formData.get("password");
     // const nid = formData.get("nid");
-    console.log({ name, email, password });
 
-    const result = await fetch("http://localhost:3000/api/users", {
+    await fetch("http://localhost:3000/api/users", {
       method: "POST",
       body: JSON.stringify({ name, email, password }),
     });
-
-    console.log(result);
   };
 
   return (
