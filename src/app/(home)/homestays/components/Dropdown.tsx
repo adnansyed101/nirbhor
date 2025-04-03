@@ -8,10 +8,10 @@ import {
     SelectValue,
 } from "@/components/ui/select"
 
-const Dropdown: React.FC = () => {
+const Dropdown: React.FC<{setSortedBy: React.Dispatch<React.SetStateAction<string>>}> = ({ setSortedBy}) => {
     return (
         <div>
-            <Select>
+            <Select onValueChange={(e) => setSortedBy(e)}>
                 <SelectTrigger className="min-w-40 lg:min-h-12">
                     <SelectValue placeholder="Sort by" />
                 </SelectTrigger>

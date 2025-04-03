@@ -116,6 +116,8 @@ const data: Homestay[] = [
 
 
 const Page = () => {
+    const [sortedBy, setSortedBy] = useState<string>('recent');
+    const [searchKey, setSearchKey] = useState<string>('');
     const [homestays, setHomestays] = useState<Homestay[]>(data);
     return (
         <Container>
@@ -126,11 +128,11 @@ const Page = () => {
                 </div>
                 <div className="flex justify-between">
                     <div className="max-sm:hidden w-1/5">
-                        <SideBar />
+                        <SideBar setSearchKey={setSearchKey} />
                     </div>
                     <div className="w-full sm:w-[79%] space-y-3">
                         <div className="bg-white shadow rounded-md p-2 lg:p-5">
-                            <TopBar />
+                            <TopBar sortedBy={sortedBy} setSortedBy={setSortedBy} setSearchKey={setSearchKey} />
                         </div>
                         <div className="space-y-3">
                             {

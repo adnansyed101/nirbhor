@@ -1,10 +1,10 @@
 import Search from "./Search";
 import CheckboxDemo from './Checkbox'
 
-const SideBar = () => {
+const SideBar: React.FC<{setSearchKey: React.Dispatch<React.SetStateAction<string>>}> = ({setSearchKey}) => {
     return (
         <aside className="relative space-y-3 lg:space-y-5 bg-white p-2 lg:p-5 rounded-md shadow">
-            <Search />
+            <Search setSearchKey={setSearchKey} />
             <div className="space-y-2">
                 <h4 className="text-lg font-medium">Location</h4>
                 <div className="space-y-[6px]">

@@ -5,14 +5,17 @@ import Search from "./Search";
 import Dropdown from "./Dropdown";
 import FilterDrawer from "./FilterDrawer";
 
-const TopBar: React.FC = () => {
+const TopBar: React.FC<{sortedBy: string, setSortedBy: React.Dispatch<React.SetStateAction<string>>, setSearchKey: React.Dispatch<React.SetStateAction<string>>}> = ({sortedBy, setSortedBy, setSearchKey}) => {
+    const handleSortBy = (sortBy: string) => {
+        setSortedBy(sortBy);
+    }
     return (
         <div className="flex justify-between lg:h-12 sm:border-2 rounded-lg relative gap-2">
             <div className="sm:hidden">
-                <Search  />
+                <Search  setSearchKey={setSearchKey} />
             </div>
             <div className="sm:hidden">
-                <Dropdown />
+                <Dropdown setSortedBy={setSortedBy} />
             </div>
             <div className="sm:hidden">
                 <FilterDrawer />
@@ -22,13 +25,13 @@ const TopBar: React.FC = () => {
                     <h4 className="text-sm">Sort By</h4>
                 </div>
                 <div className="flex justify-between items-center flex-1">
-                    <Button variant="secondary" className="bg-primary text-white">Recent</Button>
+                    <Button onClick={() => handleSortBy('recent')} variant="secondary" className={`${sortedBy === 'recent' ? 'bg-primary text-white hover:bg-primary' : ''}`}>Recent</Button>
                     |
-                    <Button variant="secondary">Popular</Button>
+                    <Button onClick={() => handleSortBy('popular')} variant="secondary" className={`${sortedBy === 'popular' ? 'bg-primary text-white hover:bg-primary' : ''}`}>Popular</Button>
                     |
-                    <Button variant="secondary">Price <span className="text-[10px]">(Highest first)</span></Button>
+                    <Button onClick={() => handleSortBy('priceHigh')} variant="secondary" className={`${sortedBy === 'priceHigh' ? 'bg-primary text-white hover:bg-primary' : ''}`}>Price <span className="text-[10px]">(Highest first)</span></Button>
                     |
-                    <Button variant="secondary">Price <span className="text-[10px]">(Lowest first)</span></Button>
+                    <Button onClick={() => handleSortBy('priceLow')} variant="secondary" className={`${sortedBy === 'priceLow' ? 'bg-primary text-white hover:bg-primary' : ''}`}>Price <span className="text-[10px]">(Lowest first)</span></Button>
                 </div>
             </div>
         </div>
