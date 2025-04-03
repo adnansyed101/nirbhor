@@ -46,11 +46,6 @@ const navigation: NavItem[] = [
 ];
 
 const dashboardData = {
-  user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
-  },
   navMain: [
     {
       title: "Overview",

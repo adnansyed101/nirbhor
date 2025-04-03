@@ -1,10 +1,10 @@
 import mongoose, { Schema } from "mongoose";
 
 interface IUserDocument extends mongoose.Document {
-  name: { type: string; required: true };
-  email: { type: string; required: true; unique: true };
-  password: { type: string; required: true };
-  role: { type: "admin" | "homeowner" | "customer"; required: true };
+  name: string;
+  email: string;
+  password: string;
+  role: "admin" | "homeowner" | "customer";
   //   gender: { type: "male" | "female" | "others"; required: true };
   //   age: { type: number; required: true };
   //   phone: { type: number; required: true };

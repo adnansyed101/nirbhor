@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import Link from "next/link";
 import Image from "next/image";
+
 const Logo: React.FC<{ className?: string; variant: "white" | "black" }> = ({
   className,
   variant,
