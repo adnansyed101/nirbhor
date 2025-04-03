@@ -4,7 +4,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 
 const CheckboxDemo:React.FC<{keyword: string}> = ({keyword}) => {
   return (
-    <div className="flex items-center space-x-2">
+    <div className="flex items-center space-x-2 max-lg:text-xs">
       <Checkbox id="terms" />
       <label
         htmlFor="terms"
