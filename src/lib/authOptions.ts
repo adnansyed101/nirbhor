@@ -1,10 +1,14 @@
 import CredentialsProvider from "next-auth/providers/credentials";
 import { NextAuthOptions } from "next-auth";
+import User from "@/app/models/user";
+import bcrypt from "bcrypt";
 
 interface User {
   id: number;
-  name: string;
+  name?: string;
   email: string;
+  password?: string;
+  role: string;
 }
 
 const authOptions: NextAuthOptions = {
@@ -15,19 +19,21 @@ const authOptions: NextAuthOptions = {
         email: { label: "Email", type: "email", placeholder: "Enter Email" },
         password: { label: "Password", type: "password" },
       },
-      async authorize(credentials) {
-        const user = {
-          id: "sd",
-          name: "J Smith",
-          email: "jsmith@example.com",
-          password: "kjsdljf",
-        };
+      async authorize(credentials: User) {
+        const { email, password } = credentials;
 
-        if (user) {
+        const user = await User.findOne({ email });
+
+        if (!user) return;
+
+        const isPasswordOk = await bcrypt.compare(password, user.password);
+
+        console.log(user);
+
+        if (isPasswordOk) {
           return user;
-        } else {
-          return null;
         }
+        return null;
       },
     }),
   ],
