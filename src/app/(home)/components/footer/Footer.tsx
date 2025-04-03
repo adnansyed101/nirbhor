@@ -1,5 +1,6 @@
 "use client";
 
+import Container from "@/components/container";
 import { usePathname } from "next/navigation";
 
 const Footer = () => {
@@ -14,8 +15,8 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-white rounded-lg shadow-sm dark:bg-gray-900">
-      <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+    <footer className="rounded-lg shadow-sm ">
+      <Container className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
         <div className="sm:flex sm:items-center sm:justify-between">
           <a
             href="#"
@@ -56,7 +57,7 @@ const Footer = () => {
           </a>
           . All Rights Reserved.
         </span>
-      </div>
+      </Container>
     </footer>
   );
 };
