@@ -1,6 +1,7 @@
 import { AppSidebar } from "@/components/app-sidebar";
 import { SiteHeader } from "@/components/site-header";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+import Wrapper from "../wrapper";
 
 export default function RootLayout({
   children,
@@ -8,8 +9,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
+    <main>
+      <Wrapper>
         <SidebarProvider
           style={
             {
@@ -26,7 +27,7 @@ export default function RootLayout({
             </div>
           </SidebarInset>
         </SidebarProvider>
-      </body>
-    </html>
+      </Wrapper>
+    </main>
   );
 }

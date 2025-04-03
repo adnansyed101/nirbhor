@@ -1,41 +1,48 @@
-'use client';
+"use client";
 
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import Link from "next/link"
-import { FormEvent } from "react"
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import Link from "next/link";
+import { FormEvent } from "react";
 
 export function SignupForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
-
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const email = formData.get("email");
-    const nid = formData.get("nid");
+    const name = formData.get("name");
     const password = formData.get("password");
-    console.log({ email, nid, password });
-  }
+    const nid = formData.get("nid");
+
+    console.log({ email, name, password, nid });
+
+    await fetch("http://localhost:3000/api/users", {
+      method: "POST",
+      body: JSON.stringify({ name, email, password, nid }),
+    });
+  };
 
   return (
-    <div className={cn("flex flex-col gap-6 w-4/5 sm:w-1/2 lg:w-1/4", className)} {...props}>
+    <div
+      className={cn("flex flex-col gap-6 w-4/5 sm:w-1/2 lg:w-1/4", className)}
+      {...props}
+    >
       <Card>
         <CardHeader className="text-center">
           <CardTitle className="text-xl">Register</CardTitle>
-          <CardDescription>
-            Register with your Google account
-          </CardDescription>
+          <CardDescription>Register with your Google account</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit}>
@@ -58,6 +65,16 @@ export function SignupForm({
               </div>
               <div className="grid gap-6">
                 <div className="grid gap-3">
+                  <Label htmlFor="name">Name</Label>
+                  <Input
+                    id="name"
+                    type="text"
+                    placeholder="Name"
+                    name="name"
+                    required
+                  />
+                </div>
+                <div className="grid gap-3">
                   <Label htmlFor="email">Email</Label>
                   <Input
                     id="email"
@@ -68,10 +85,10 @@ export function SignupForm({
                   />
                 </div>
                 <div className="grid gap-3">
-                  <Label htmlFor="email">NID Number</Label>
+                  <Label htmlFor="nid">NID Number</Label>
                   <Input
                     id="nid"
-                    type="nid"
+                    type="text"
                     placeholder="NID Number"
                     name="nid"
                     required
@@ -80,14 +97,14 @@ export function SignupForm({
                 <div className="grid gap-3">
                   <div className="flex items-center">
                     <Label htmlFor="password">Password</Label>
-                    {/* <Link
-                      href="#"
-                      className="ml-auto text-sm underline-offset-4 hover:underline"
-                    >
-                      Forgot your password?
-                    </Link> */}
                   </div>
-                  <Input id="password" type="password" placeholder="Password" name="password" required />
+                  <Input
+                    id="password"
+                    type="password"
+                    placeholder="Password"
+                    name="password"
+                    required
+                  />
                 </div>
                 <Button type="submit" className="w-full">
                   Register
@@ -104,5 +121,5 @@ export function SignupForm({
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }

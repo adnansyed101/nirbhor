@@ -6,9 +6,12 @@ import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
 import Container from "@/components/container";
 import Logo from "@/components/Logo";
+import { useSession } from "next-auth/react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const Navbar = () => {
   const path = usePathname();
+  const session = useSession();
 
   if (
     path.includes("/dashboard") ||
@@ -36,16 +39,23 @@ const Navbar = () => {
                 </li>
               ))}
             </ul>
-            <div>
-              <Link href={"register"}>
-                <Button variant="link" className="cursor-pointer text-back">
-                  Create
-                </Button>
-              </Link>
-              <Link href={"/login"}>
-                <Button>Login</Button>
-              </Link>
-            </div>
+            {session?.data?.user ? (
+              <Avatar>
+                <AvatarImage src="https://github.com/shadcn.png" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+            ) : (
+              <div>
+                <Link href={"register"}>
+                  <Button variant="link" className="cursor-pointer text-back">
+                    Create
+                  </Button>
+                </Link>
+                <Link href={"/login"}>
+                  <Button>Login</Button>
+                </Link>
+              </div>
+            )}
           </div>
         </Container>
       </nav>
