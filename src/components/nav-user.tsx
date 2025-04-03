@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import {
   IconCreditCard,
@@ -6,13 +6,9 @@ import {
   IconLogout,
   IconNotification,
   IconUserCircle,
-} from "@tabler/icons-react"
+} from "@tabler/icons-react";
 
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/components/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -21,24 +17,47 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
 import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
+import { useEffect, useState } from "react";
+import { useSession } from "next-auth/react";
 
-export function NavUser({
-  user,
-}: {
-  user: {
-    name: string
-    email: string
-    avatar: string
-  }
-}) {
-  const { isMobile } = useSidebar()
+interface User {
+  name: string;
+  email: string;
+  role: "admin" | "homeowner" | "customer";
+  avatar?: string;
+}
+
+export function NavUser() {
+  const [user, setUser] = useState<User | null>({
+    name: "John Doe",
+    email: "john@doe.com",
+    role: "homeowner",
+    avatar:
+      "https://images.icon-icons.com/1378/PNG/512/avatardefault_92824.png",
+  });
+  const { data: session } = useSession();
+  const { isMobile } = useSidebar();
+
+  useEffect(() => {
+    if (session) {
+      console.log(`http://localhost:3000/api/users/${session.user.email}`);
+
+      fetch(`http://localhost:3000/api/users/${session.user.email}`)
+        .then((res) => res.json())
+        .then((user) => {
+          const { name, email, role } = user;
+
+          setUser({ name, email, role });
+        });
+    }
+  }, [session]);
 
   return (
     <SidebarMenu>
@@ -106,5 +125,5 @@ export function NavUser({
         </DropdownMenu>
       </SidebarMenuItem>
     </SidebarMenu>
-  )
+  );
 }
