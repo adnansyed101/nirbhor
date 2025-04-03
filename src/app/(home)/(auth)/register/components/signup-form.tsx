@@ -24,11 +24,13 @@ export function SignupForm({
     const email = formData.get("email");
     const name = formData.get("name");
     const password = formData.get("password");
-    // const nid = formData.get("nid");
+    const nid = formData.get("nid");
+
+    console.log({ email, name, password, nid });
 
     await fetch("http://localhost:3000/api/users", {
       method: "POST",
-      body: JSON.stringify({ name, email, password }),
+      body: JSON.stringify({ name, email, password, nid }),
     });
   };
 
@@ -82,25 +84,19 @@ export function SignupForm({
                     required
                   />
                 </div>
-                {/* <div className="grid gap-3">
-                  <Label htmlFor="email">NID Number</Label>
+                <div className="grid gap-3">
+                  <Label htmlFor="nid">NID Number</Label>
                   <Input
                     id="nid"
-                    type="nid"
+                    type="text"
                     placeholder="NID Number"
                     name="nid"
                     required
                   />
-                </div> */}
+                </div>
                 <div className="grid gap-3">
                   <div className="flex items-center">
                     <Label htmlFor="password">Password</Label>
-                    {/* <Link
-                      href="#"
-                      className="ml-auto text-sm underline-offset-4 hover:underline"
-                    >
-                      Forgot your password?
-                    </Link> */}
                   </div>
                   <Input
                     id="password"
