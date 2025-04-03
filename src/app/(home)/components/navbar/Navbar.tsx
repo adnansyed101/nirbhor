@@ -13,6 +13,8 @@ const Navbar = () => {
   const path = usePathname();
   const session = useSession();
 
+  console.log(session.data?.user);
+
   if (
     path.includes("/dashboard") ||
     path.includes("/login") ||
