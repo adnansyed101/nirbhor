@@ -10,6 +10,7 @@ import {
     DrawerTrigger,
 } from "@/components/ui/drawer"
 import { Funnel } from "lucide-react";
+import Filters from "./Filters";
 
 const FilterDrawer: React.FC = () => {
     return (
@@ -21,13 +22,13 @@ const FilterDrawer: React.FC = () => {
                 <DrawerContent>
                     <div className="mx-auto w-full max-w-sm">
                         <DrawerHeader>
-                            <DrawerTitle>Move Goal</DrawerTitle>
-                            <DrawerDescription>Set your daily activity goal.</DrawerDescription>
+                            <DrawerTitle className="text-primary text-2xl">All filters</DrawerTitle>
+                            <DrawerDescription>Filter by location, price, type or rating</DrawerDescription>
                         </DrawerHeader>
                         <DrawerFooter>
-                            <Button>Submit</Button>
+                            <Filters />
                             <DrawerClose asChild>
-                                <Button variant="outline">Cancel</Button>
+                                <Button variant="secondary" className="mt-3">Filter</Button>
                             </DrawerClose>
                         </DrawerFooter>
                     </div>
