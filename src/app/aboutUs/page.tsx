@@ -194,7 +194,7 @@ export default function AboutUs() {
               <p className="text-sm font-semibold uppercase mt-2 text-orange-800">
                 What our guests say about us
               </p>
-            </div>
+            </div>  
 
             <div className="flex justify-center">
               <Carousel
