@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, ReactNode, useState } from "react";
+import React, { createContext, ReactNode, useEffect, useState } from "react";
 
 const data: Homestay[] = [
     {
@@ -131,6 +131,18 @@ const SearchProvider = ({ children }: { children: ReactNode }) => {
     const [homestays, setHomestays] = useState<Homestay[]>(data);
     const [selectedFilters, setSelectedFilters] = useState<Filterby[]>([]);
     const [queryString, setQueryString] = useState<string>('');
+
+    useEffect(() => {
+
+        let filterQuery = '';
+        selectedFilters.map((item, index) => {
+            filterQuery = filterQuery.concat(Object.keys(item)[0]).concat('=').concat(Object.values(item)[0])
+            if (index < selectedFilters.length - 1) {
+                filterQuery = filterQuery.concat('&')
+            }
+        });
+        setQueryString(`?search=${searchKey}&sort=${sortedBy}${filterQuery ? '&'.concat(filterQuery) : ""}`);
+    }, [searchKey, sortedBy, selectedFilters]);
 
     const searchData: SearchData = {
         sortedBy, setSortedBy,

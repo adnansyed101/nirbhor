@@ -31,20 +31,8 @@ interface Homestay {
 
 const Page = () => {
     const {
-        sortedBy,
-        searchKey,
         homestays,
-        selectedFilters,
-        setQueryString
     } = useSearch();
-    let filterQuery = '';
-    selectedFilters.map((item, index) => {
-        filterQuery = filterQuery.concat(Object.keys(item)[0]).concat('=').concat(Object.values(item)[0])
-        if(index < selectedFilters.length-1){
-            filterQuery = filterQuery.concat('&')
-        }
-    });
-    setQueryString(`?search=${searchKey}&sort=${sortedBy}${filterQuery ? '&'.concat(filterQuery) : ""}`);
     return (
         <Container>
             <div className="flex justify-between py-3 flex-col">
