@@ -4,18 +4,20 @@ import { Button } from "@/components/ui/button";
 import Search from "./Search";
 import Dropdown from "./Dropdown";
 import FilterDrawer from "./FilterDrawer";
+import useSearch from "../hooks/use-search";
 
-const TopBar: React.FC<{sortedBy: string, setSortedBy: React.Dispatch<React.SetStateAction<string>>, setSearchKey: React.Dispatch<React.SetStateAction<string>>}> = ({sortedBy, setSortedBy, setSearchKey}) => {
+const TopBar: React.FC = () => {
+    const {sortedBy, setSortedBy} = useSearch();
     const handleSortBy = (sortBy: string) => {
         setSortedBy(sortBy);
     }
     return (
         <div className="flex justify-between lg:h-12 sm:border-2 rounded-lg relative gap-2">
             <div className="sm:hidden">
-                <Search  setSearchKey={setSearchKey} />
+                <Search />
             </div>
             <div className="sm:hidden">
-                <Dropdown setSortedBy={setSortedBy} />
+                <Dropdown />
             </div>
             <div className="sm:hidden">
                 <FilterDrawer />

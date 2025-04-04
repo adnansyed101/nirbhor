@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import SearchProvider from "./providers/search-provider";
 
 export const metadata: Metadata = {
   title: "Nirbhor | Homestays"
@@ -11,10 +12,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-        <body
-        >
+      <body
+      >
+        <SearchProvider>
           {children}
-        </body>
+        </SearchProvider>
+      </body>
     </html>
   );
 }

@@ -7,8 +7,10 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
+import useSearch from "../hooks/use-search";
 
-const Dropdown: React.FC<{setSortedBy: React.Dispatch<React.SetStateAction<string>>}> = ({ setSortedBy}) => {
+const Dropdown: React.FC = () => {
+    const { setSortedBy } = useSearch();
     return (
         <div>
             <Select onValueChange={(e) => setSortedBy(e)}>

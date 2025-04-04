@@ -1,46 +1,45 @@
-
-import CheckboxDemo from './Checkbox'
+import CheckboxDemo from './Checkbox';
 
 const Filters = () => {
     return (
-        <div className='flex flex-wrap sm:flex-col gap-5'>
+        <div className='flex flex-wrap justify-between w-4/5 sm:flex-col gap-5'>
             <div className="space-y-2">
-                <h4 className="text-lg font-medium">Location</h4>
+                <h4 className="text-lg font-medium">location</h4>
                 <div className="space-y-[6px]">
-                    <CheckboxDemo keyword="Dhaka" />
-                    <CheckboxDemo keyword="Chattagram" />
-                    <CheckboxDemo keyword="Sylhet" />
-                    <CheckboxDemo keyword="Khulna" />
-                    <CheckboxDemo keyword="Barishal" />
-                    <CheckboxDemo keyword="Rangpur" />
-                    <CheckboxDemo keyword="Rajshahi" />
-                    <CheckboxDemo keyword="Mymensing" />
+                    <CheckboxDemo filterBy={{ location: 'dhaka' }} />
+                    <CheckboxDemo filterBy={{ location: 'chattagram' }} />
+                    <CheckboxDemo filterBy={{ location: 'sylhet' }} />
+                    <CheckboxDemo filterBy={{ location: 'khulna' }} />
+                    <CheckboxDemo filterBy={{ location: 'barishal' }} />
+                    <CheckboxDemo filterBy={{ location: 'rangpur' }} />
+                    <CheckboxDemo filterBy={{ location: 'rajshahi' }} />
+                    <CheckboxDemo filterBy={{ location: 'mymensing' }} />
                 </div>
             </div>
             <div className="space-y-2">
                 <h4 className="text-lg font-medium">Price</h4>
                 <div className="space-y-[6px]">
-                    <CheckboxDemo keyword="৳ 0 - ৳ 1000" />
-                    <CheckboxDemo keyword="৳ 1001 - ৳ 2000" />
-                    <CheckboxDemo keyword="৳ 2001 - ৳ 3000" />
-                    <CheckboxDemo keyword="৳ 3001 - More" />
+                    <CheckboxDemo filterBy={{ price: '৳ 0 - ৳ 1000' }} />
+                    <CheckboxDemo filterBy={{ price: '৳ 1001 - ৳ 2000' }} />
+                    <CheckboxDemo filterBy={{ price: '৳ 2001 - ৳ 3000' }} />
+                    <CheckboxDemo filterBy={{ price: '৳ 3001 - more' }} />
                 </div>
             </div>
             <div className="space-y-2">
                 <h4 className="text-lg font-medium">Property Type</h4>
                 <div className="space-y-[6px]">
-                    <CheckboxDemo keyword="Apartment" />
-                    <CheckboxDemo keyword="House" />
-                    <CheckboxDemo keyword="Cottage" />
-                    <CheckboxDemo keyword="Cabin" />
+                    <CheckboxDemo filterBy={{ type: 'apartment' }} />
+                    <CheckboxDemo filterBy={{ type: 'house' }} />
+                    <CheckboxDemo filterBy={{ type: 'cottage' }} />
+                    <CheckboxDemo filterBy={{ type: 'cabin' }} />
                 </div>
             </div>
             <div className="space-y-2">
                 <h4 className="text-lg font-medium">User Rating</h4>
                 <div className="space-y-[6px]">
-                    <CheckboxDemo keyword="Excelent: 4.5+" />
-                    <CheckboxDemo keyword="Very Good: 4.0+" />
-                    <CheckboxDemo keyword="Good: 3.5+" />
+                    <CheckboxDemo filterBy={{ rating: "excelent: 4.5+" }} />
+                    <CheckboxDemo filterBy={{ rating: "very good: 4.0+" }} />
+                    <CheckboxDemo filterBy={{ rating: "good: 3.5+" }} />
                 </div>
             </div>
         </div>

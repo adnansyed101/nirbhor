@@ -1,7 +1,9 @@
 import { Input } from "@/components/ui/input";
 import { SearchIcon } from "lucide-react";
+import useSearch from "../hooks/use-search";
 
-const Search: React.FC<{setSearchKey: React.Dispatch<React.SetStateAction<string>>}> = ({setSearchKey}) => {
+const Search: React.FC = () => {
+    const {setSearchKey} = useSearch();
     return (
         <div className="w-full">
             <SearchIcon className="text-gray-500 w-4 absolute top-[6px] sm:top-[14px] lg:top-8 left-4 lg:left-8" />
