@@ -37,14 +37,14 @@ const Navbar = () => {
   }
 
   return (
-    <>
-      <nav className="w-full h-20">
+    <div className="h-16 lg:h-20">
+      <nav className={`w-full fixed top-0 z-50 py-4 flex transition-all duration-300 ease-in-out ${fixed
+        ? "!bg-white shadow-[0_2px_10px_rgb(0_0_0_/_0.15)]"
+        : ""}`}>
         <Container
           className={clsx(
-            " fixed top-0 z-50 py-4 w-full   transition-all duration-300 ease-in-out",
-            fixed
-              ? "bg-white shadow-[0_2px_10px_rgb(0_0_0_/_0.15)]"
-              : "bg-transparent"
+            "flex items-center",
+
           )}
         >
           <div className="flex justify-between items-center h-full w-full">
@@ -81,7 +81,7 @@ const Navbar = () => {
           </div>
         </Container>
       </nav>
-    </>
+    </div>
   );
 };
 
