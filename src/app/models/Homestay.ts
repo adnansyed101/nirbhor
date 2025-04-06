@@ -1,10 +1,10 @@
-import mongoose, { Types, Schema } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 interface IHomestayDocument extends mongoose.Document {
   title: string;
   description: string;
   homestaysType: "apartment" | "house" | "cottage" | "cabin";
-  homeowner: Types.ObjectId;
+  // homeowner: Types.ObjectId;
   location: {
     address: string;
     city: string;
@@ -30,7 +30,7 @@ const HomestaySchema: Schema = new Schema(
       enum: ["apartment", "house", "cottage", "cabin"],
       required: true,
     },
-    host: { type: Schema.Types.ObjectId, ref: "User", required: true },
+    // homeowner: { type: Schema.Types.ObjectId, ref: "User", required: true },
     location: {
       address: { type: String, required: true },
       city: { type: String, required: true },
@@ -48,9 +48,8 @@ const HomestaySchema: Schema = new Schema(
   { timestamps: true }
 );
 
-const HomestayModel = mongoose.model<IHomestayDocument>(
-  "Homestay",
-  HomestaySchema
-);
+const HomestayModel =
+  (mongoose.models.Homestay as mongoose.Model<IHomestayDocument>) ||
+  mongoose.model<IHomestayDocument>("Homestay", HomestaySchema);
 
 export default HomestayModel;

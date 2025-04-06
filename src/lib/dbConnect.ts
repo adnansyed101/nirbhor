@@ -6,6 +6,8 @@ type ConnectionObject = {
 
 const connection: ConnectionObject = {};
 
+const uri = process.env.MONGODB_URI || "mongodb://localhost:27017/nirbhorDB";
+
 async function dbConnect(): Promise<void> {
   if (connection.isConnected) {
     console.log("Connected to database");
@@ -13,7 +15,7 @@ async function dbConnect(): Promise<void> {
   }
 
   try {
-    const db = await mongoose.connect(process.env.MONGODB_URI || "", {});
+    const db = await mongoose.connect(uri);
 
     connection.isConnected = db.connections[0].readyState;
 
@@ -22,7 +24,6 @@ async function dbConnect(): Promise<void> {
     return;
   } catch (error) {
     console.log("Database Connection failed: " + error);
-
     process.exit(1);
   }
 }
