@@ -11,17 +11,17 @@ interface IBookingDocument extends mongoose.Document {
   nights: number; // Auto Calculated
   // pricing
   totalPrice: number; // Total Cost of the property
-  homeownerPayout: number; // Money homeowner will recieve
+  homeownerPayout: number; // Money homeowner will receive
   serviceFee: number; // Platform charge (eg. 10%)
 
-  // payment
-  payment: {
-    method: string;
-    transactionID: string;
-    amount: string;
-    status: "pending" | "confirmed" | "cancelled" | "completed";
-    date: Date;
-  };
+  // // payment
+  // payment: {
+  //   method: string;
+  //   transactionID: string;
+  //   amount: string;
+  //   status: "pending" | "confirmed" | "cancelled" | "completed";
+  //   date: Date;
+  // };
 }
 
 const BookingSchema: Schema = new Schema<IBookingDocument>(
@@ -38,16 +38,16 @@ const BookingSchema: Schema = new Schema<IBookingDocument>(
     homeownerPayout: { type: Number, required: true },
     serviceFee: { type: Number, required: true },
 
-    payment: {
-      method: { type: String, required: true },
-      transactionID: { type: Number, required: true },
-      amount: { type: Number, required: true },
-      status: {
-        type: String,
-        enum: ["pending", "confirmed", "cancelled", "completed"],
-      },
-      date: { type: Date, required: true },
-    },
+    // payment: {
+    //   method: { type: String, required: true },
+    //   transactionID: { type: Number, required: true },
+    //   amount: { type: Number, required: true },
+    //   status: {
+    //     type: String,
+    //     enum: ["pending", "confirmed", "cancelled", "completed"],
+    //   },
+    //   date: { type: Date, required: true },
+    // },
   },
   { timestamps: true }
 );
