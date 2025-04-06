@@ -29,10 +29,16 @@ const navigation: NavItem[] = [
     label: "Home",
   },
   {
+    id: 5,
+    path: "/homestays",
+    label: "Homestays",
+  },
+  {
     id: 2,
     path: "/about",
     label: "About",
   },
+
   {
     id: 3,
     path: "/contact",
