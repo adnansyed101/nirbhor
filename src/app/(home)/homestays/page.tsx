@@ -1,66 +1,31 @@
-'use client';
-
 import Container from "@/components/container";
 import SideBar from "./components/SideBar";
 import TopBar from "./components/TopBar";
-import HomestayCard from "./components/HomestayCard";
-import useSearch from "./hooks/use-search";
-
-interface Homestay {
-    _id: string,
-    title: string,
-    description: string,
-    type: "apartment" | "house" | "cottage" | "cabin",
-    homeowner: string,
-    location: {
-        address: string,
-        city: string,
-        country: string,
-        coordinates: number[],
-    },
-    pricePerNight: number,
-    bedrooms: number,
-    bathrooms: number,
-    maxGuests: number,
-    amenities: string[],
-    images: string[],
-    availability: boolean,
-    createdAt: string,
-
-}
+import HomestayContainer from "./components/HomestayContainer";
+import SearchProvider from "./providers/search-provider";
 
 const Page = () => {
-    const {
-        homestays,
-    } = useSearch();
     return (
-        <Container>
-            <div className="flex justify-between py-3 flex-col">
-                <div className="mb-3 lg:mb-5">
-                    <h3 className="text-primary text-2xl lg:text-4xl font-bold">All Homestays </h3>
-                    <p className="text-lg font-medium">0 Homestays found</p>
-                </div>
-                <div className="flex justify-between">
-                    <div className="max-sm:hidden w-1/5">
-                        <SideBar />
+        <SearchProvider>
+            <Container>
+                <div className="flex justify-between py-3 flex-col">
+                    <div className="mb-3 lg:mb-5">
+                        <p className="text-lg font-medium">0 Homestays found</p>
                     </div>
-                    <div className="w-full sm:w-[79%] space-y-3">
-                        <div className="bg-white shadow rounded-md p-2 lg:p-5">
-                            <TopBar />
+                    <div className="flex justify-between">
+                        <div className="max-sm:hidden w-1/5">
+                            <SideBar />
                         </div>
-                        <div className="space-y-3">
-                            {
-                                homestays.length
-                                    ?
-                                    homestays.map((item: Homestay) => <HomestayCard key={item._id} homestay={item} />)
-                                    :
-                                    <h5>Loading</h5>
-                            }
+                        <div className="w-full sm:w-[79%] space-y-3">
+                            <div className="bg-white shadow rounded-md p-2 lg:p-5">
+                                <TopBar />
+                            </div>
+                            <HomestayContainer />
                         </div>
                     </div>
                 </div>
-            </div>
-        </Container>
+            </Container>
+        </SearchProvider>
     );
 }
 

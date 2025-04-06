@@ -1,3 +1,5 @@
+'use client';
+
 import Filters from "./Filters";
 import Search from "./Search";
 

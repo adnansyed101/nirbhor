@@ -8,10 +8,25 @@ import Container from "@/components/container";
 import Logo from "@/components/Logo";
 import { useSession } from "next-auth/react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { useEffect, useState } from "react";
+import clsx from "clsx";
 
 const Navbar = () => {
   const path = usePathname();
   const session = useSession();
+  const [fixed, setFixed] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleScroll: () => void = () => {
+      const shouldFixed = window.scrollY > 0;
+      setFixed(shouldFixed);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   if (
     path.includes("/dashboard") ||
@@ -22,10 +37,17 @@ const Navbar = () => {
   }
 
   return (
-    <>
-      <nav className="w-full h-20">
-        <Container className=" h-full">
-          <div className="flex justify-between items-center h-full">
+    <div className="h-16 lg:h-20">
+      <nav className={`w-full fixed top-0 z-50 py-4 flex transition-all duration-300 ease-in-out ${fixed
+        ? "!bg-white shadow-[0_2px_10px_rgb(0_0_0_/_0.15)]"
+        : ""}`}>
+        <Container
+          className={clsx(
+            "flex items-center",
+
+          )}
+        >
+          <div className="flex justify-between items-center h-full w-full">
             <Logo variant="black" />
             <ul className="hidden md:flex gap-x-6 ">
               {navigation.map((navItem) => (
@@ -59,7 +81,7 @@ const Navbar = () => {
           </div>
         </Container>
       </nav>
-    </>
+    </div>
   );
 };
 

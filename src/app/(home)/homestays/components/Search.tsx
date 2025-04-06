@@ -1,3 +1,5 @@
+'use client';
+
 import { Input } from "@/components/ui/input";
 import { SearchIcon } from "lucide-react";
 import useSearch from "../hooks/use-search";
