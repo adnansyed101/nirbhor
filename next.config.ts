@@ -5,12 +5,7 @@ const nextConfig: NextConfig = {
 
   //added just for check card design, will modify
   images: {
-    remotePatterns: [
-      { protocol: 'https', hostname: 'houseandhome.com' },
-      { protocol: 'https', hostname: 'www.kingliving.com.sg' },
-      { protocol: 'https', hostname: 'www.organicswings.com' },
-      { protocol: 'https', hostname: 'houses.eyrc.com' },
-    ],
+    remotePatterns: [{ protocol: "https", hostname: "res.cloudinary.com" }],
   },
 };
 
