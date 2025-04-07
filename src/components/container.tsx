@@ -9,10 +9,7 @@ const Container = ({
 }) => {
   return (
     <section
-      className={clsx(
-        className,
-        `max-w-screen-xl w-11/12 lg:w-4/5 mx-auto`
-      )}
+      className={clsx(className, `max-w-screen-xl w-11/12 lg:w-4/5 mx-auto`)}
     >
       {children}
     </section>
